@@ -1,0 +1,470 @@
+/* =====================
+   Variables de color
+   ===================== */
+:root {
+  --black: #191919;
+  --black-soft: #222222;
+  --pink: #FF5F9E;
+  --pink-light: #ff85b8;
+  --border: #FF5F9E44;
+  --shadow: rgba(255, 95, 158, 0.25);
+}
+
+/* =====================
+   Reset & Base
+   ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--black);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =====================
+   Corazones flotantes
+   ===================== */
+.bg-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-hearts span {
+  position: absolute;
+  font-size: 1.2rem;
+  opacity: 0.18;
+  animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+  0%   { transform: translateY(110vh) scale(0.7); opacity: 0; }
+  10%  { opacity: 0.18; }
+  90%  { opacity: 0.18; }
+  100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+}
+
+/* =====================
+   Corazón decorativo top
+   ===================== */
+.deco-heart-top {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  filter: drop-shadow(0 2px 8px var(--pink));
+  animation: heartbeat 1.8s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: translateX(-50%) scale(1); }
+  50%       { transform: translateX(-50%) scale(1.15); }
+}
+
+/* =====================
+   Card wrapper
+   ===================== */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   Tarjeta principal
+   ===================== */
+.card {
+  background: var(--black);
+  border-radius: 18px;
+  border: 1.5px solid var(--border);
+  box-shadow: 0 8px 40px var(--shadow), 0 2px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* =====================
+   Barras superiores
+   ===================== */
+.bar-top {
+  background: var(--black);
+  border-bottom: 1.5px solid var(--border);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--pink);
+  letter-spacing: 0.01em;
+}
+
+.bar-top .site-name {
+  font-weight: 600;
+}
+
+.bar-second {
+  background: var(--black-soft);
+  border-bottom: 1.5px solid var(--border);
+  padding: 9px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--pink);
+  font-weight: 500;
+}
+
+.bar-second .icons {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+/* =====================
+   Área de perfil
+   ===================== */
+.profile-area {
+  padding: 32px 20px 24px;
+  text-align: center;
+  background: var(--black);
+  position: relative;
+}
+
+/* Fondo de puntos */
+.profile-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--pink) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* =====================
+   Imagen de perfil
+   ===================== */
+.profile-img-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.profile-img-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid var(--black);
+  box-shadow: 0 0 0 3px var(--pink), 0 4px 20px var(--shadow);
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-img-circle:hover {
+  transform: scale(1.04);
+}
+
+.change-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: var(--pink);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s;
+}
+
+.change-overlay:hover {
+  background: #d81b60;
+}
+
+#photo-input {
+  display: none;
+}
+
+/* =====================
+   Nombre y decoración
+   ===================== */
+.profile-name {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pink);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.star-deco {
+  font-size: 0.78rem;
+  color: var(--pink);
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+  position: relative;
+}
+
+/* =====================
+   Nav de perfil
+   ===================== */
+.profile-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 0.85rem;
+  color: var(--pink);
+  font-weight: 500;
+  position: relative;
+}
+
+.profile-nav span {
+  cursor: pointer;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+}
+
+.profile-nav span:hover {
+  color: var(--pink-light);
+  border-bottom-color: var(--pink-light);
+}
+
+/* =====================
+   Barra inferior
+   ===================== */
+.bar-bottom {
+  background: var(--black);
+  border-top: 1.5px solid var(--border);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--pink);
+  font-weight: 500;
+}
+
+.bar-bottom .icons {
+  display: flex;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+/* =====================
+   Botón momentos
+   ===================== */
+.btn-moments {
+  display: block;
+  margin: 0 auto;
+  padding: 11px 28px;
+  background: linear-gradient(135deg, var(--pink), #d81b60);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-moments:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px var(--shadow);
+}
+
+.btn-moments:active {
+  transform: translateY(0);
+}
+
+/* =====================
+   Decoración central
+   ===================== */
+.center-deco {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--pink);
+  letter-spacing: 3px;
+  margin: 10px 0 14px;
+  opacity: 0.7;
+}
+
+/* =====================
+   Barra de música
+   ===================== */
+.music-bar {
+  margin-top: 18px;
+  background: var(--black-soft);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+
+.music-icon {
+  font-size: 1.1rem;
+  animation: noteBounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes noteBounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-3px); }
+}
+
+.music-info {
+  flex: 1;
+}
+
+.music-title {
+  font-size: 0.82rem;
+  color: var(--pink);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-progress {
+  margin-top: 4px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.music-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pink), #d81b60);
+  border-radius: 3px;
+  transition: width 0.5s linear;
+}
+
+.music-btn {
+  background: var(--pink);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.music-btn:hover {
+  background: #d81b60;
+  transform: scale(1.1);
+}
+
+/* =====================
+   Modal
+   ===================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(25, 25, 25, 0.88);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: var(--black-soft);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 36px 28px;
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  box-shadow: 0 12px 48px var(--shadow);
+  animation: popIn 0.3s ease both;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.modal-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--pink);
+  margin-bottom: 12px;
+}
+
+.modal-box p {
+  font-size: 0.9rem;
+  color: var(--pink-light);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.modal-hearts {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+
+.modal-close {
+  padding: 9px 26px;
+  background: linear-gradient(135deg, var(--pink), #d81b60);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--shadow);
+  transition: transform 0.2s;
+}
+
+.modal-close:hover {
+  transform: scale(1.04);
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regalo para nezu ᓚ₍⑅^..^₎♡</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Corazones flotantes de fondo -->
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <!-- Modal: mejores momentos -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-box">
+        <div class="modal-hearts">💕🌸💕</div>
+        <h2>Best Moments 🌷</h2>
+        <p>
+          Every hug, every smile, every laugh shared with you is a treasure.
+          Thank you for being the most wonderful mom in the world. These moments
+          are forever in my heart. 💗
+        </p>
+        <button class="modal-close" onclick="closeModal()">Close ✨</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta principal -->
+    <div class="card-wrapper">
+      <!-- Contenedor del player de YouTube (invisible) -->
+      <div id="ytPlayerContainer"></div>
+
+      <div class="card">
+        <!-- Barra superior -->
+        <div class="bar-top">
+          <span class="site-name">happy mother's day 💕</span>
+        </div>
+
+        <!-- Segunda barra -->
+        <div class="bar-second">
+          <span>Ten un precioso día junto a Nirvana 𐔌՞. .՞𐦯</span>
+          <div class="icons">♥ ⭑.ᐟ</div>
+        </div>
+
+        <!-- Área de perfil -->
+        <div class="profile-area">
+          <!-- Imagen de perfil fija -->
+          <div class="profile-img-wrap">
+            <img
+              id="profileImg"
+              class="profile-img-circle"
+              src="https://i.pinimg.com/736x/9a/05/ff/9a05ffb5a53491c4e7d5232abfac1ce9.jpg"
+              alt="Profile photo"
+            />
+          </div>
+
+          <div class="profile-name">My best friend ⊹ ࣪ ˖ ໒꒱</div>
+          <div class="star-deco">✦ ✧ ☆ ✧ ✦</div>
+
+          <div class="profile-nav">
+            <span>To: Nezu</span>
+            <span>From: Gustambo</span>
+          </div>
+        </div>
+        <!-- /profile-area -->
+
+        <!-- Barra inferior -->
+        <div class="bar-bottom">
+          <span>Come muy deli hoy y siempre ( •̯́ ₃ •̯̀)</span>
+          <div class="icons">♡ ✦</div>
+        </div>
+      </div>
+      <!-- /card -->
+
+      <!-- Botón mejores momentos -->
+      <div style="text-align: center; margin: 20px 0 4px">
+        <button
+          class="btn-moments"
+          onclick="window.location.href = 'momentos.html'"
+        >
+          Momento especiales junto a ti 𑣲𓏲ּ𝄢
+        </button>
+      </div>
+
+      <!-- Decoración de estrellas -->
+      <div class="center-deco">✦ ✧ ☆ ✧ ✦</div>
+
+      <!-- Barra de música -->
+      <div class="music-bar">
+        <span class="music-icon">🎵</span>
+        <div class="music-info">
+          <div class="music-title" id="musicTitle">
+            mi bebito fiufiu — special song
+          </div>
+          <div class="music-progress">
+            <div class="music-progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+        <button class="music-btn" id="playBtn" onclick="togglePlay()">▶</button>
+      </div>
+    </div>
+    <!-- /card-wrapper -->
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
